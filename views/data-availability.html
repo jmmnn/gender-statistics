@@ -1,0 +1,71 @@
+<!-- controller.data-availability-dashboard -->
+
+<!-- Preloader -->
+<!-- <div class="row no-margin-padding-left-right" ng-hide="loaded">
+	<div class="col-md-12 no-margin-padding-left-right">
+		<div id="preloader" class="">
+			<img src="img/preloader.gif">
+		</div>
+	</div>
+</div> -->
+	
+<div class="row no-margin-padding-left-right">
+	<div class="col-md-2 no-margin-padding-left-right">
+		<h4>Filters</h4>
+		<div class="row no-margin-padding-left-right">
+			<button class="btn btn-default btn-block text-left" ng-click="clearAll()"><i class="fa fa-times"></i> Clear Selections</button>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<div class="row no-margin-padding-top-bottom">
+			<div class="col-md-12">
+				<div class="qvobject one" data-qvid="KAaYuk" id="obj_KAaYuk"></div>
+			</div>
+		</div>	
+		<div class="row no-margin-padding-top-bottom">
+			<div class="col-md-4">
+				<div class="qvobject three" data-qvid="mSWf" id="obj_mSWf"></div>
+			</div>
+			<div class="col-md-8">
+				<div class="qvobject three" data-qvid="QRpQBXb" id="obj_QRpQBXb"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<img src="img/UN_legend.png">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<div class="qvobject" data-qvid="Caeq" id="obj_Caeq"></div>
+				Disclaimer : The designations employed and the presentation of material on this map do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.
+			</div>
+			<div class="col-md-4">
+				<div id="map-legend-holder">
+					<div id="map-legend">
+						<div id="map-legend-top">More data</div>
+						<div id="map-legend-bottom">Less data</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="dropdown col-md-4" id="dropdownCtryName">
+				<label>Select Country:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.CtryName }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownSeriesName">
+					<li ng-repeat="item in CtryName" ng-class="(selection.CtryName===item[0].qText) ? 'active' : ''"><a ng-click="selectCtryName(item[0].qText)">{{ item[0].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="qvobject" data-qvid="RyaHUc" id="obj_RyaHUc"></div>
+			</div>
+		</div>
+	</div>
+</div>
+

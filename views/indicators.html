@@ -1,0 +1,152 @@
+<!-- controller.indicator-dashboard -->
+
+<!-- Preloader -->
+<!-- <div class="row no-margin-padding-left-right" ng-hide="loaded">
+	<div class="col-md-12 no-margin-padding-left-right">
+		<div id="preloader" class="">
+			<img src="img/preloader.gif">
+		</div>
+	</div>
+</div> -->
+	
+<div class="row no-margin-padding-left-right">
+	<div class="col-md-12">
+		<ul class="nav nav-pills nav-justified">
+			<li role="presentation" ng-class="(selection.DomainName==0) ? 'disabled' : ''"><a ng-click="selectDomain(0)">
+				<i class="fa fa-suitcase fa-4x blue"></i><br><br>
+				Economic structures, participation in productive activities and access to resources
+			</a></li>
+			<li role="presentation" ng-class="(selection.DomainName==1) ? 'disabled' : ''"><a ng-click="selectDomain(1)">
+				<i class="fa fa-graduation-cap fa-4x blue"></i><br>
+				Education
+			</a></li>
+			<li role="presentation" ng-class="(selection.DomainName==2) ? 'disabled' : ''"><a ng-click="selectDomain(2)">
+				<i class="fa fa-stethoscope fa-4x blue"></i><br>
+				 Health and related services
+			</a></li>
+			<li role="presentation" ng-class="(selection.DomainName==3) ? 'disabled' : ''"><a ng-click="selectDomain(3)">
+				<i class="fa fa-gavel fa-4x blue"></i><br>
+				 Public life and decision-making
+			</a></li>
+            <li role="presentation" ng-class="(selection.DomainName==4) ? 'disabled' : ''"><a ng-click="selectDomain(4)">
+				<i class="fa fa-female fa-4x blue"></i><br>
+				Human rights of women and girl children
+			</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="row no-margin-padding-left-right">
+	<div class="col-md-2">
+		<h4 class="filter-label">Filters</h4>
+		<div class="row">
+			<button class="btn btn-default btn-block text-left" ng-click="clearAll()"><i class="fa fa-times"></i> Clear Selections</button>
+		</div>
+
+		<div class="row">
+			<div class="dropdown" id="dropdownTier">
+				<label>Select Tier:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{selection.Tier}}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownTier">
+					<!-- <li ng-repeat="item in Tier" ng-class="(selection.Tier==item) ? 'active' : ''"><a ng-click="selectTier(item)">{{item}}</a></li> -->
+					<li ng-repeat="item in Tier" ng-class="(selection.Tier==item[0].qNum) ? 'active' : ''"><a ng-click="selectTier(item[0].qNum)">{{ item[0].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+		<div class="row">
+			<div class="dropdown" id="dropdownSeriesName">
+				<label>Select Indicator:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.SeriesName }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownSeriesName">
+					<!--<li ng-repeat="item in SeriesName" ng-class="(selection.SeriesName===item[1].qText) ? 'active' : ''"><a ng-click="selectIndicator(item[0].qNum, item[1].qText)">{{ item[1].qText }}</a></li>
+					-->
+					<li ng-repeat="item in SeriesName" ng-class="(selection.SeriesName===item[1].qText) ? 'active' : ''"><a ng-click="selectIndicator(item[0].qNum, item[1].qText)"> {{ item[0].qText }}-{{ item[1].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+        <!-- old version of COD filter -->
+		<!--<div class="row" ng-show="codVisible">
+			<div class="dropdown" id="dropdownCOD">
+				<label>Select Cause of Death:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.COD }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownCOD">
+					<li ng-repeat="item in COD" ng-class="(selection.COD===item[1].qText) ? 'active' : ''"><a ng-click="selectCOD(item[1])">{{ item[1].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>-->
+        <div class="row" ng-show="codVisible">
+			<div class="dropdown" id="dropdownCOD">
+				<label>Select Cause of Death:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.CoDName }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownCOD">
+					<li ng-repeat="item in CoDName" ng-class="(selection.CoDName===item[0].qText) ? 'active' : ''"><a ng-click="selectCOD(item[0].qText)">{{ item[0].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+		<hr>
+		<div class="row">
+			<div class="dropdown" id="dropdownMDGRegionName">
+				<label>Select Region:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.MDGRegionName }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownSeriesName">
+					<li ng-repeat="item in MDGRegionName" ng-class="(selection.MDGRegionName===item[0].qText) ? 'active' : ''"><a ng-click="selectRegion(item[0].qText)">{{ item[0].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+		<div class="row">
+			<div class="col-md-12 no-margin-padding">
+				<i class="fa fa-square fa-2x male"></i>
+				<div class="genderLabel">Male</div>
+			</div>
+			<div class="col-md-12 no-margin-padding genderLabel">
+				<i class="fa fa-square fa-2x female"></i>
+				<div class="genderLabel">Female</div>
+			</div>
+			<div class="col-md-12 no-margin-padding genderLabel">
+				<i class="fa fa-square fa-2x ratio"></i>
+				<div class="genderLabel">Ratio female/male</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="qvobject six" data-qvid="WkuvcF" id="obj_WkuvcF"></div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+<hr>
+
+<div class="row" ng-if="codVisible">
+	<div class="col-md-12">
+		<label>Cause of Death:</label> {{ selection.COD }}
+	</div>
+</div>	
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="qvobject three" data-qvid="Esfdk" id="obj_Esfdk"></div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,45 @@
+<!-- controller.data-table -->
+
+<!-- Preloader -->
+<!-- <div class="row no-margin-padding-left-right" ng-hide="loaded">
+	<div class="col-md-12 no-margin-padding-left-right">
+		<div id="preloader" class="">
+			<img src="img/preloader.gif">
+		</div>
+	</div>
+</div> -->
+	
+<div class="row" >
+	<div class="col-md-12">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Indicator Name</th>
+					<th>Area of Concern</th>
+					<th>Tier</th>
+					<th>Agency</th>
+					<th>EDGE</th>
+					<th>Data</th>
+					<th>Metadata</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in dataTable" ng-if="!item[1].qIsNull">
+					<!--After loading data with IndicatorSubNum+' - '+SeriesName as SeriesName, there is no need to add intem[1]-->
+                    <td>{{ item[1].qText }} - {{ item[2].qText }}</td>
+                    <!--<td>{{ item[2].qText }}</td>-->
+					<td>{{ item[3].qText }}</td>
+					<td>{{ item[4].qText }}</td>
+					<td>{{ item[5].qText }}</td>
+					<td><i class="fa fa-check" ng-if="item[6].qNum"></i></td>
+					<td class="sec-center" >
+						<i class="fa fa-download" title="Download Data" ng-click="export(item[2].qText, (item[1].qText==='42a' || item[1].qText==='42b')?2:0, item[1].qText)"></i>
+					</td>
+					<td class="sec-center">
+						<i class="fa fa-download" title="Download MetaData" ng-click="export(item[2].qText, 1, item[1].qText)"></i>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

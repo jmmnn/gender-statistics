@@ -1,0 +1,112 @@
+
+<!-- controller.main -->
+
+<!-- Preloader -->
+<!-- <div class="row no-margin-padding-left-right" ng-hide="loaded">
+	<div class="col-md-12 no-margin-padding-left-right">
+		<div id="preloader" class="">
+			<img src="img/preloader.gif">
+		</div>
+	</div>
+</div> -->
+	
+<div class="row no-margin-padding-left-right">
+	<div class="col-md-2">
+		<h4 class="filter-label">Filters</h4>
+		<div class="row">
+			<button class="btn btn-default btn-block text-left" ng-click="clearAll()"><i class="fa fa-times"></i> Clear Selections</button>
+		</div>
+		<div class="row">
+			<div class="dropdown" id="dropdownCtryName">
+				<label>Select Country:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.CtryName }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownSeriesName">
+					<li ng-repeat="item in CtryName" ng-class="(selection.CtryName===item[0].qText) ? 'active' : ''"><a ng-click="selectCtryName(item[0].qText)">{{ item[0].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+		<div class="row">
+			<div class="col-md-12 no-margin-padding">
+				<i class="fa fa-square fa-2x male"></i>
+				<div class="genderLabel">Male</div>
+			</div>
+			<div class="col-md-12 no-margin-padding genderLabel">
+				<i class="fa fa-square fa-2x female"></i>
+				<div class="genderLabel">Female</div>
+			</div>
+			<div class="col-md-12 no-margin-padding genderLabel">
+				<i class="fa fa-square fa-2x ratio"></i>
+				<div class="genderLabel">Ratio female/male</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="qvobject three" data-qvid="dXMRZ" id="obj_dXMRZ"></div> <!-- QNwj -->
+			</div>	
+			<div class="col-md-6">
+				<div class="qvobject three" data-qvid="QNwj" id="obj_QNwj"></div> <!-- TQup -->
+			</div>	
+		</div>	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="qvobject three" data-qvid="WQBSSxA" id="obj_WQBSSxA"></div>
+			</div>	
+			<div class="col-md-6">
+				<div class="qvobject three" data-qvid="uyZnpjH" id="obj_uyZnpjH"></div>
+			</div>	
+		</div>	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="qvobject three" data-qvid="suLjJn" id="obj_suLjJn"></div>
+			</div>	
+			<div class="col-md-6">
+				<div class="qvobject three" data-qvid="UVmDygb" id="obj_UVmDygb"></div>
+			</div>	
+		</div>	
+	</div>	
+</div>	
+
+<hr>
+
+<div class="row">
+	<div class="col-md-2">
+		<div class="row">
+			<div class="dropdown" id="dropdownSeriesName">			
+				<label>{{ selectionDisplay.CtryName }}</label><br>
+				<label>Select Indicator:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.SeriesName }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownSeriesName">
+					<li ng-repeat="item in SeriesName" ng-class="(selection.SeriesName===item[0].qText) ? 'active' : ''"><a ng-click="selectIndicator(item[1].qNum, item[0].qText)">{{ item[0].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+		<div class="row" ng-show="codVisible">
+			<div class="dropdown" id="dropdownCOD">
+				<label>Select Cause of Death:</label>
+				<button class="btn btn-default dropdown-toggle btn-block text-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{{ selectionDisplay.COD }}
+					<span class="caret pull-right"></span>
+				</button>
+				<ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownCOD">
+					<li ng-repeat="item in COD" ng-class="(selection.COD===item[1].qText) ? 'active' : ''"><a ng-click="selectCOD(item[1])">{{ item[1].qText }}</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<div class="col-md-10">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="qvobject five" data-qvid="WjzupK" id="obj_WjzupK"></div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,43 @@
+<!-- NAVIGATION BAR -->
+<div id="brand-bar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="brandbar-header">
+    <div class="row no-margin-padding-top-bottom">
+      <div class="col-md-3">
+        <a class="navbar-brand" href="#home">Welcome to the United Nations</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-md-12" id="header-title-top">
+		<div class="col-xs-2 img no-margin-padding-left-right"><img src="img/logos/logo.png" alt="Home"/></div>
+		<div class="col-xs-10 title no-margin-padding-left-right">MINIMUM SET OF GENDER INDICATORS</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12" id="header-title-bottom">
+		<nav class="navbar navbar-default" role="navigation" id="header-title2" >
+		    <div class="navbar-header no-margin-padding">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="navbar-collapse-2">
+		      <ul class="nav navbar-nav">
+		          <li ng-class="(page==1) ? 'active' : ''"><a ng-click="goTo('home')">Home</a></li>
+		          <li ng-class="(page==2) ? 'active' : ''"><a ng-click="goTo('indicators')">Indicators</a></li>
+		          <li ng-class="(page==3) ? 'active' : ''"><a ng-click="goTo('countries')">Countries</a></li>
+		          <li ng-class="(page==4) ? 'active' : ''"><a ng-click="goTo('data-availability')">Data Availability</a></li>
+		          <li ng-class="(page==5) ? 'active' : ''"><a ng-click="goTo('downloads')">Downloads</a></li>
+		      </ul>
+		    </div>
+		  <!-- </div> -->
+		</nav>
+    </div>
+</div>
