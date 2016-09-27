@@ -2,7 +2,7 @@
 
 /* You need to change scriptsUrl to the correct one before debug the code. */
 // var scriptsUrl = 'http://webapps.qlik.com/un/gender-statistics/'; // QLIK/
-var scriptsUrl = '/'; // UN - OICT
+var scriptsUrl = '/gender-statistics/'; // UN - OICT
 //var scriptsUrl = 'http://localhost/gender-statistics/'; // local
 // var scriptsUrl = 'https://km-unite.dev.un.org/sites/km-unite.un.org/apps/gender-statistics/';  
 // var scriptsUrl = 'https://unite.un.org/sites/unite.un.org/files/app-desa-genderstats/';  
